@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xamarin.Forms.Calendar"                  
+             x:Class="Xamarin.Forms.Calendar.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="Beige">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Text="{Binding Title}" 
+            TextColor="White" 
+            FontSize="22" 
+            HorizontalTextAlignment="Center" 
+            VerticalTextAlignment="Center"
+            BackgroundColor="Crimson"/>
+
+        <CollectionView 
+            x:Name="calendarHeader"
+            Grid.Row="1" BackgroundColor="SteelBlue"              
+            ItemsSource="{Binding CalendarSource.HeaderDataSource}">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="7" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Grid BackgroundColor="LightSkyBlue" 
+                              Margin="1" 
+                              HeightRequest="44"
+                              WidthRequest="44">
+
+                            <Label HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center"
+                                   Text="{Binding Header}"/>
+
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+        <CollectionView 
+            x:Name="calendar"
+            Grid.Row="2" BackgroundColor="SteelBlue"   
+             
+            ItemsSource="{Binding CalendarSource.MappedDataSource}">
+                                                                
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="7" />
+            </CollectionView.ItemsLayout>
+           
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Grid Margin="1" 
+                              HeightRequest="44"
+                              WidthRequest="44">
+
+                            <Image Source="{local:ImageResource Xamarin.Forms.Calendar.Assets.Images.cal_day.png}"                                    
+                                   Aspect="AspectFill" />
+
+                            <Label HorizontalTextAlignment="Center" HeightRequest="44"
+                                   VerticalTextAlignment="Center">
+
+                                <Label.Style>
+                                    <Style TargetType="Label">
+                                        <Style.Triggers>
+
+                                            <DataTrigger TargetType="Label" 
+                                                Binding="{Binding IsTemp}" 
+                                                Value="0">
+                                                
+                                                <Setter 
+                                                    Property="BackgroundColor" 
+                                                    Value="Beige"/>
+
+                                                <Setter
+                                                    Property="Text"
+                                                    Value="{Binding DisplayDate}"/>
+
+                                            </DataTrigger>
+
+                                            <DataTrigger TargetType="Label" 
+                                                Binding="{Binding IsTemp}" 
+                                                Value="1">
+
+                                                <Setter 
+                                                    Property="BackgroundColor" 
+                                                    Value="White"/>
+
+                                            </DataTrigger>
+
+
+                                            <DataTrigger TargetType="Label" 
+                                                Binding="{Binding IsTemp}" 
+                                                Value="2">
+
+                                                <Setter 
+                                                    Property="BackgroundColor" 
+                                                    Value="Blue"/>
+
+
+                                                <Setter
+                                                    Property="Text"
+                                                    Value="{Binding Month}"/>
+
+
+                                            </DataTrigger>
+
+
+
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </Label.Style>
+
+                            </Label>
+                        </Grid>
+            
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<TableView Intent="Menu">
+        <TableRoot>
+            <TableSection Title="Section 1">
+                <TextCell Text="Vertical List"/>
+                
+                
+
+            </TableSection>
+
+            <TableSection Title="Section 2">
+                <TextCell Text="List 2">
+                    
+                </TextCell>
+            </TableSection>
+            
+            
+        </TableRoot>
+        
+        
+        
+        
+        
+        
+        
+    </TableView>-->
+        
+        
+        
+
+</ContentPage>
