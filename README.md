@@ -7,10 +7,7 @@ Design calendar data model, allow custom images per day, custom headers between 
 Calendar design needs to take Apple/Google design recommendations
   - vertical scroll on iOS.
   - horizontal on Android).
-  
-  
-  
-  
+ 
 Calendar setup will allow
   - pick the style of calendar (vertical/horizontal).
   - set calendar min/max dates.
@@ -30,3 +27,12 @@ Calendar setup will allow
       3. other
   
     * more to come.
+
+
+- Initial Stage Images
+
+![alt text](https://github.com/davidacres/Xamarin.Forms.Calendar/blob/master/Xamarin.Forms.Calendar/Readme/android-01.PNG)
+
+![alt text](https://github.com/davidacres/Xamarin.Forms.Calendar/blob/master/Xamarin.Forms.Calendar/Readme/android-02.PNG)
+
+
