@@ -56,7 +56,8 @@
 
         <CollectionView 
             x:Name="calendar"
-            Grid.Row="2" BackgroundColor="SteelBlue"   
+            Grid.Row="2" 
+            BackgroundColor="AntiqueWhite"   
              
             ItemsSource="{Binding CalendarSource.MappedDataSource}">
                                                                 
@@ -85,13 +86,14 @@
                                                 Binding="{Binding IsTemp}" 
                                                 Value="0">
                                                 
-                                                <Setter 
-                                                    Property="BackgroundColor" 
-                                                    Value="Beige"/>
-
+                            
                                                 <Setter
                                                     Property="Text"
                                                     Value="{Binding DisplayDate}"/>
+
+                                                <Setter 
+                                                    Property="BackgroundColor" 
+                                                    Value="Transparent"/>
 
                                             </DataTrigger>
 
@@ -101,10 +103,9 @@
 
                                                 <Setter 
                                                     Property="BackgroundColor" 
-                                                    Value="White"/>
+                                                    Value="AntiqueWhite"/>
 
                                             </DataTrigger>
-
 
                                             <DataTrigger TargetType="Label" 
                                                 Binding="{Binding IsTemp}" 
@@ -112,7 +113,7 @@
 
                                                 <Setter 
                                                     Property="BackgroundColor" 
-                                                    Value="Blue"/>
+                                                    Value="LightSkyBlue"/>
 
 
                                                 <Setter
@@ -121,9 +122,6 @@
 
 
                                             </DataTrigger>
-
-
-
 
                                         </Style.Triggers>
                                     </Style>
