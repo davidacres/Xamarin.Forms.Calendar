@@ -8,9 +8,13 @@ Calendar design needs to take Apple/Google design recommendations
   - vertical scroll on iOS.
   - horizontal on Android).
   
+  
+  
+  
 Calendar setup will allow
-  - calendar min/max dates.
-  - displaying single month/multiple months.
+  - pick the style of calendar (vertical/horizontal).
+  - set calendar min/max dates.
+  - display single month/multiple months.
   - enable/disable specific days (to allow for custom holidays etc).
   - week view, displaying a single week with horizontal scrolling.
 
