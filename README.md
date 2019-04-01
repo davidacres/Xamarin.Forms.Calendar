@@ -35,4 +35,4 @@ Calendar setup will allow
 
 ![alt text](https://github.com/davidacres/Xamarin.Forms.Calendar/blob/master/Xamarin.Forms.Calendar/Readme/android-02.PNG)
 
-
+![alt text](https://github.com/davidacres/Xamarin.Forms.Calendar/blob/master/Xamarin.Forms.Calendar/Readme/android-03.PNG)
