@@ -2,12 +2,67 @@ using Xamarin.Forms.Calendar;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Xamarin.Forms.Calendar.UnitTests
 {
     [TestClass]
     public class CalendarDataSource_Tests
     {
+        [TestMethod]
+        public void Testing()
+        {
+            //var startOfWeek = (int)DayOfWeek.Wednesday;
+
+            //var max = 7;
+
+            //var dtInfo = new System.Globalization.DateTimeFormatInfo();
+
+            //for (int cnt = startOfWeek; cnt< startOfWeek + 7; cnt++)
+            //{
+
+            //    int pos = (cnt % max);
+
+            //    var r = dtInfo.GetShortestDayName((DayOfWeek)pos);
+
+            //    Debug.WriteLine($"Position: {pos} Weekday {r}");
+            //}            
+
+
+            var rr = Header(DayOfWeek.Wednesday);
+
+
+        }
+
+        private string[] Header(DayOfWeek startOfWeek)
+        {
+            var max = 7;
+            var dtInfo = new System.Globalization.DateTimeFormatInfo();
+            var start = (int)startOfWeek;
+
+            string[] items = new string[7];
+            var indx = 0;
+
+            for (int cnt = start; cnt < start + max; cnt++)
+            {
+                int pos = (cnt % max);
+
+                var r = dtInfo.GetShortestDayName((DayOfWeek)pos);
+
+                Debug.WriteLine($"Position: {pos} Weekday {r}");
+
+                items[indx] = r;
+
+
+                indx++;
+
+            }
+
+            return items;
+        }
+
+
+
         [TestMethod]
         public void CalendarDataSource_GetDatesBetweenDates_Returns31()
         {

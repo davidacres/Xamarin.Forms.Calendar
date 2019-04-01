@@ -8,6 +8,8 @@ namespace Xamarin.Forms.Calendar
     {
         public string Title { get; set; } = "Hello There";
 
+        public List<string> Header = new List<string>() { "M", "T", "W", "T", "F", "S", "S" };
+
         private CalendarDataSource _calendarDataSource;
 
         public MainViewModel()

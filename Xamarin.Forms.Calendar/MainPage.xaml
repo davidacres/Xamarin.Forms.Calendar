@@ -11,9 +11,9 @@
     <Grid BackgroundColor="Beige">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="44"/>
-            <RowDefinition Height="44"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Label
@@ -27,7 +27,8 @@
 
         <CollectionView 
             x:Name="calendarHeader"
-            Grid.Row="1" BackgroundColor="SteelBlue"              
+            Grid.Row="1" 
+            BackgroundColor="SteelBlue"                            
             ItemsSource="{Binding CalendarSource.HeaderDataSource}">
 
             <CollectionView.ItemsLayout>
@@ -37,14 +38,14 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <ContentView>
-                        <Grid BackgroundColor="LightSkyBlue" 
-                              Margin="1" 
-                              HeightRequest="44"
+                        <Grid BackgroundColor="SteelBlue" 
+                              Margin="1"                               
                               WidthRequest="44">
 
                             <Label HorizontalTextAlignment="Center" 
                                    VerticalTextAlignment="Center"
-                                   Text="{Binding Header}"/>
+                                   TextColor="White"
+                                   Text="{Binding}"/>
 
                         </Grid>
                     </ContentView>
@@ -58,7 +59,7 @@
             x:Name="calendar"
             Grid.Row="2" 
             BackgroundColor="AntiqueWhite"   
-             
+            Margin="0, 0, -10, 0"
             ItemsSource="{Binding CalendarSource.MappedDataSource}">
                                                                 
             <CollectionView.ItemsLayout>
@@ -105,6 +106,10 @@
                                                     Property="BackgroundColor" 
                                                     Value="AntiqueWhite"/>
 
+                                                <Setter
+                                                    Property="Text"
+                                                    Value=""/>
+
                                             </DataTrigger>
 
                                             <DataTrigger TargetType="Label" 
@@ -138,15 +143,6 @@
 
 
     </Grid>
-
-
-
-
-
-
-
-
-
 
 
 

@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace Xamarin.Forms.Calendar
 {
-    public class CalendarDataSource
+    public class CalendarDataSource : ViewModelBase
     {
         public string Title => "Calendar";
 
@@ -21,7 +21,45 @@ namespace Xamarin.Forms.Calendar
 
         public IEnumerable<Day> MappedDataSource => MapDaysToDisplay();
 
-        public List<string> HeaderDataSource { get; set; }
+
+
+        private List<string> header;
+        public List<string> HeaderDataSource
+        {
+            get => header;
+            set => Set(ref header, value);
+        }
+
+
+
+
+        private string[] Header(DayOfWeek startOfWeek)
+        {
+            var max = 7;
+            var dtInfo = new System.Globalization.DateTimeFormatInfo();
+            var start = (int)startOfWeek;
+
+            string[] items = new string[7];
+            var indx = 0;
+
+            for (int cnt = start; cnt < start + max; cnt++)
+            {
+                int pos = (cnt % max);
+
+                var r = dtInfo.GetShortestDayName((DayOfWeek)pos);
+
+                Debug.WriteLine($"Position: {pos} Weekday {r}");
+
+                items[indx] = r;
+
+
+                indx++;
+
+            }
+
+            return items;
+        }
+
 
         public List<Day> MapDaysToDisplay()
         {
@@ -58,6 +96,9 @@ namespace Xamarin.Forms.Calendar
             var tmp = new List<Day>();
             tmp.AddRange(tempDays);
             tmp.AddRange(days);
+
+            HeaderDataSource = new List<string>(Header(startOfWeek));
+
 
             //var week = tmp.Take(7);
             //foreach (var item in week)
@@ -99,7 +140,7 @@ namespace Xamarin.Forms.Calendar
 
         public List<Day> CreateTempDays()
         {            
-            var tempDays = Enumerable.Range(0, 7);
+            var tempDays = Enumerable.Range(0, 14);
 
             var days = tempDays.Select(date => new Day()
             {                

@@ -11,6 +11,8 @@ namespace Xamarin.Forms.Calendar
         {
             InitializeComponent();
 
+            
+            
           
         }
     }
